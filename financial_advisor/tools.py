@@ -1,18 +1,19 @@
-import os, re
+import dotenv
 
-from crewai.tools import tool
+dotenv.load_dotenv()
+import re
+import os
 from firecrawl import FirecrawlApp, ScrapeOptions
 
 
-@tool
 def web_search_tool(query: str):
     """
-    Web Search Toll
+    Web Search Tool.
     Args:
         query: str
-            The query to search the web for
-    Returns:
-        A List of search results with the website content in Markdown format.
+            The query to search the web for.
+    Returns
+        A list of search results with the website content in Markdown format.
     """
     app = FirecrawlApp(api_key=os.getenv("FIRECRAWL_API_KEY"))
 
